@@ -23,7 +23,7 @@ API de Wikipedia
 Si quieres contribuir a este proyecto y hacerlo aún mejor, ¡eres bienvenido! Siéntete libre de bifurcar este repositorio y enviar solicitudes de extracción con tus mejoras.
 
 **Créditos**
-Este proyecto fue creado como parte de un ejercicio de aprendizaje. Créditos a OpenAI por proporcionar la infraestructura necesaria para desarrollar y compartir este proyecto.
+Este proyecto fue creado como parte de un ejercicio de aprendizaje. Por Mi Persona Gerson Enrique Batun Suriano..
 
 **Licencia**
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para obtener más información.
