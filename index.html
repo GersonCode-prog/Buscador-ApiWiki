@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wikipedia Search</title>
+    <title>Buscador Wikipedia</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <h1>Buscador Wikipedia</h1>
-    <input type="text" id="searchTerm" placeholder="Escribe que Buscaras">
+    <label for="searchTerm">Término de búsqueda:</label>
+    <input type="text" id="searchTerm" placeholder="Escribe qué buscarás">
     <button id="searchButton">Buscar</button>
-    <div id="result"></div>
+    <div id="result" aria-live="polite"></div>
 
     <script src="js/script.js"></script>
 </body>

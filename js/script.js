@@ -11,21 +11,31 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        // Realizar la solicitud a la API de Wikipedia para obtener extractos
+        resultDiv.innerHTML = '<p>Cargando...</p>'; // Mensaje de carga
+
         fetch(`https://es.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&titles=${searchTerm}&pithumbsize=300&exintro&explaintext&origin=*`)
             .then(response => response.json())
             .then(data => {
-                // Obtener el extracto del artículo y la URL de la imagen
-                const pageId = Object.keys(data.query.pages)[0];
-                const extract = data.query.pages[pageId].extract;
-                const imageUrl = data.query.pages[pageId].thumbnail ? data.query.pages[pageId].thumbnail.source : null;
+                const pages = data.query.pages;
+                const pageId = Object.keys(pages)[0];
+                const page = pages[pageId];
 
-                // Mostrar el extracto y la imagen en el elemento HTML
+                if (page.missing) {
+                    resultDiv.innerHTML = '<p>No se encontraron resultados para la búsqueda.</p>';
+                    return;
+                }
+
+                const extract = page.extract;
+                const imageUrl = page.thumbnail ? page.thumbnail.source : null;
+
                 resultDiv.innerHTML = `
                     <p>${extract}</p>
                     ${imageUrl ? `<img src="${imageUrl}" alt="Imagen relacionada">` : ''}
                 `;
             })
-            .catch(error => console.error('Error fetching data:', error));
+            .catch(error => {
+                resultDiv.innerHTML = '<p>Hubo un error al realizar la búsqueda. Inténtalo de nuevo.</p>';
+                console.error('Error fetching data:', error);
+            });
     });
 });
